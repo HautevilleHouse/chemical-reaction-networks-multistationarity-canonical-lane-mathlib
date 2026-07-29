@@ -1,0 +1,16 @@
+import canonicalLaneMathlib.AdmissibleClass
+import HautevilleHouse.ChemicalReactionNetworksMultistationarityCanonicalLaneLean.BridgeLemmas
+import HautevilleHouse.ChemicalReactionNetworksMultistationarityCanonicalLaneLean.GateLemmas
+
+namespace HautevilleHouse
+namespace ChemicalReactionNetworksMultistationarityCanonicalLaneLean
+
+def ConstrainedChemicalReactionNetworksMultistationarityClosure (A : AdmissibleClass) : Prop :=
+  bridgeClosed A ∧ gateClosed A
+
+theorem constrained_chemical_reaction_networks_multistationarity_endgame (A : AdmissibleClass) :
+    ConstrainedChemicalReactionNetworksMultistationarityClosure A := by
+  exact And.intro (bridge_from_admissible_class A) (gate_from_admissible_class A)
+
+end ChemicalReactionNetworksMultistationarityCanonicalLaneLean
+end HautevilleHouse
